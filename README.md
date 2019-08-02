@@ -18,7 +18,7 @@
 2. MetalPerformanceShaders.framework
 
 
-美颜SDK需要配置和BundleId相对应的AppID
+美颜SDK需要配置和BundleId相对应的YY美颜 AppID
 
 
 
