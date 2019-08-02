@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4801A2DA22D5F58400BC09A2 /* of_effect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4801A2D922D5F58400BC09A2 /* of_effect.framework */; };
+		4801A33322D5F6D000BC09A2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4801A33222D5F6D000BC09A2 /* Accelerate.framework */; };
+		4801A33522D5F75A00BC09A2 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4801A33422D5F75A00BC09A2 /* MetalPerformanceShaders.framework */; };
+		481A309E22D82DE000B3A436 /* BeautyUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 481A309522D82DE000B3A436 /* BeautyUtil.cpp */; };
+		481A309F22D82DE000B3A436 /* StickerUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 481A309722D82DE000B3A436 /* StickerUtil.cpp */; };
+		481A30A022D82DE000B3A436 /* HTTPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A309A22D82DE000B3A436 /* HTTPUtil.m */; };
+		481A30A122D82DE000B3A436 /* FilterUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 481A309B22D82DE000B3A436 /* FilterUtil.cpp */; };
+		481A30A222D82DE000B3A436 /* CameraUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 481A309D22D82DE000B3A436 /* CameraUtil.mm */; };
+		481A30AC22D82E0100B3A436 /* FilterEffectPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 481A30A422D82E0100B3A436 /* FilterEffectPanel.mm */; };
+		481A30AD22D82E0100B3A436 /* StickerEffectPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 481A30A822D82E0100B3A436 /* StickerEffectPanel.mm */; };
+		481A30AE22D82E0100B3A436 /* EffectRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 481A30A922D82E0100B3A436 /* EffectRender.cpp */; };
+		481A30AF22D82E0100B3A436 /* BeautyEffectPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 481A30AA22D82E0100B3A436 /* BeautyEffectPanel.mm */; };
+		481A30B322D8353200B3A436 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 481A30B022D8353200B3A436 /* images */; };
+		481A30B422D8353200B3A436 /* effects in Resources */ = {isa = PBXBuildFile; fileRef = 481A30B122D8353200B3A436 /* effects */; };
+		481A30B522D8353200B3A436 /* venus_models in Resources */ = {isa = PBXBuildFile; fileRef = 481A30B222D8353200B3A436 /* venus_models */; };
+		48DC6AD022CCBB5B0005C613 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC6ACF22CCBB5B0005C613 /* AppDelegate.m */; };
+		48DC6AD622CCBB5B0005C613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DC6AD422CCBB5B0005C613 /* Main.storyboard */; };
+		48DC6AD822CCBB5C0005C613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DC6AD722CCBB5C0005C613 /* Assets.xcassets */; };
+		48DC6ADB22CCBB5C0005C613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DC6AD922CCBB5C0005C613 /* LaunchScreen.storyboard */; };
+		48DC6ADE22CCBB5C0005C613 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC6ADD22CCBB5C0005C613 /* main.m */; };
+		48DC6AE622CCBC980005C613 /* TTTRtcManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC6AE522CCBC980005C613 /* TTTRtcManager.m */; };
+		48DC6AE922CCBCE40005C613 /* TTTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC6AE822CCBCE40005C613 /* TTTLoginViewController.m */; };
+		48DC6AEC22CD95F00005C613 /* TTTLiveViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 48DC6AEB22CD95F00005C613 /* TTTLiveViewController.mm */; };
+		A946D5B2AE62271D19EF18D6 /* Pods_T3VideoCapture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129C76C4D097F77AB094864B /* Pods_T3VideoCapture.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		129C76C4D097F77AB094864B /* Pods_T3VideoCapture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T3VideoCapture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4801A2D922D5F58400BC09A2 /* of_effect.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = of_effect.framework; sourceTree = "<group>"; };
+		4801A33222D5F6D000BC09A2 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		4801A33422D5F75A00BC09A2 /* MetalPerformanceShaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShaders.framework; path = System/Library/Frameworks/MetalPerformanceShaders.framework; sourceTree = SDKROOT; };
+		481A309422D82DE000B3A436 /* FilterUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterUtil.h; sourceTree = "<group>"; };
+		481A309522D82DE000B3A436 /* BeautyUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeautyUtil.cpp; sourceTree = "<group>"; };
+		481A309622D82DE000B3A436 /* HTTPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPUtil.h; sourceTree = "<group>"; };
+		481A309722D82DE000B3A436 /* StickerUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StickerUtil.cpp; sourceTree = "<group>"; };
+		481A309822D82DE000B3A436 /* StickerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerUtil.h; sourceTree = "<group>"; };
+		481A309922D82DE000B3A436 /* BeautyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautyUtil.h; sourceTree = "<group>"; };
+		481A309A22D82DE000B3A436 /* HTTPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPUtil.m; sourceTree = "<group>"; };
+		481A309B22D82DE000B3A436 /* FilterUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FilterUtil.cpp; sourceTree = "<group>"; };
+		481A309C22D82DE000B3A436 /* CameraUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraUtil.h; sourceTree = "<group>"; };
+		481A309D22D82DE000B3A436 /* CameraUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraUtil.mm; sourceTree = "<group>"; };
+		481A30A422D82E0100B3A436 /* FilterEffectPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FilterEffectPanel.mm; sourceTree = "<group>"; };
+		481A30A522D82E0100B3A436 /* FilterEffectPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterEffectPanel.h; sourceTree = "<group>"; };
+		481A30A622D82E0100B3A436 /* StickerEffectPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerEffectPanel.h; sourceTree = "<group>"; };
+		481A30A722D82E0100B3A436 /* BeautyEffectPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautyEffectPanel.h; sourceTree = "<group>"; };
+		481A30A822D82E0100B3A436 /* StickerEffectPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StickerEffectPanel.mm; sourceTree = "<group>"; };
+		481A30A922D82E0100B3A436 /* EffectRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectRender.cpp; sourceTree = "<group>"; };
+		481A30AA22D82E0100B3A436 /* BeautyEffectPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BeautyEffectPanel.mm; sourceTree = "<group>"; };
+		481A30AB22D82E0100B3A436 /* EffectRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectRender.h; sourceTree = "<group>"; };
+		481A30B022D8353200B3A436 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		481A30B122D8353200B3A436 /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
+		481A30B222D8353200B3A436 /* venus_models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = venus_models; sourceTree = "<group>"; };
+		48DC6ACB22CCBB5B0005C613 /* T3VideoCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T3VideoCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48DC6ACE22CCBB5B0005C613 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		48DC6ACF22CCBB5B0005C613 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		48DC6AD522CCBB5B0005C613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		48DC6AD722CCBB5C0005C613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		48DC6ADA22CCBB5C0005C613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		48DC6ADC22CCBB5C0005C613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48DC6ADD22CCBB5C0005C613 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		48DC6AE422CCBC980005C613 /* TTTRtcManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTRtcManager.h; sourceTree = "<group>"; };
+		48DC6AE522CCBC980005C613 /* TTTRtcManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTRtcManager.m; sourceTree = "<group>"; };
+		48DC6AE722CCBCE40005C613 /* TTTLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTTLoginViewController.h; sourceTree = "<group>"; };
+		48DC6AE822CCBCE40005C613 /* TTTLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTTLoginViewController.m; sourceTree = "<group>"; };
+		48DC6AEA22CD95F00005C613 /* TTTLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTTLiveViewController.h; sourceTree = "<group>"; };
+		48DC6AEB22CD95F00005C613 /* TTTLiveViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TTTLiveViewController.mm; sourceTree = "<group>"; };
+		619E052F28CEA82CB21D026C /* Pods-T3VideoCapture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T3VideoCapture.release.xcconfig"; path = "Target Support Files/Pods-T3VideoCapture/Pods-T3VideoCapture.release.xcconfig"; sourceTree = "<group>"; };
+		EE11DB4F296418BEBA12F969 /* Pods-T3VideoCapture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T3VideoCapture.debug.xcconfig"; path = "Target Support Files/Pods-T3VideoCapture/Pods-T3VideoCapture.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48DC6AC822CCBB5B0005C613 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4801A33522D5F75A00BC09A2 /* MetalPerformanceShaders.framework in Frameworks */,
+				4801A33322D5F6D000BC09A2 /* Accelerate.framework in Frameworks */,
+				4801A2DA22D5F58400BC09A2 /* of_effect.framework in Frameworks */,
+				A946D5B2AE62271D19EF18D6 /* Pods_T3VideoCapture.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4801A2DB22D5F68B00BC09A2 /* YY */ = {
+			isa = PBXGroup;
+			children = (
+				481A30B122D8353200B3A436 /* effects */,
+				481A30B022D8353200B3A436 /* images */,
+				481A30B222D8353200B3A436 /* venus_models */,
+			);
+			path = YY;
+			sourceTree = "<group>";
+		};
+		4801A33622D6D19800BC09A2 /* YYTool */ = {
+			isa = PBXGroup;
+			children = (
+				481A309522D82DE000B3A436 /* BeautyUtil.cpp */,
+				481A309922D82DE000B3A436 /* BeautyUtil.h */,
+				481A309C22D82DE000B3A436 /* CameraUtil.h */,
+				481A309D22D82DE000B3A436 /* CameraUtil.mm */,
+				481A309B22D82DE000B3A436 /* FilterUtil.cpp */,
+				481A309422D82DE000B3A436 /* FilterUtil.h */,
+				481A309622D82DE000B3A436 /* HTTPUtil.h */,
+				481A309A22D82DE000B3A436 /* HTTPUtil.m */,
+				481A309722D82DE000B3A436 /* StickerUtil.cpp */,
+				481A309822D82DE000B3A436 /* StickerUtil.h */,
+			);
+			path = YYTool;
+			sourceTree = "<group>";
+		};
+		481A30A322D82E0100B3A436 /* YYUI */ = {
+			isa = PBXGroup;
+			children = (
+				481A30A422D82E0100B3A436 /* FilterEffectPanel.mm */,
+				481A30A522D82E0100B3A436 /* FilterEffectPanel.h */,
+				481A30A622D82E0100B3A436 /* StickerEffectPanel.h */,
+				481A30A722D82E0100B3A436 /* BeautyEffectPanel.h */,
+				481A30A822D82E0100B3A436 /* StickerEffectPanel.mm */,
+				481A30AA22D82E0100B3A436 /* BeautyEffectPanel.mm */,
+				481A30AB22D82E0100B3A436 /* EffectRender.h */,
+				481A30A922D82E0100B3A436 /* EffectRender.cpp */,
+			);
+			path = YYUI;
+			sourceTree = "<group>";
+		};
+		48DC6AC222CCBB5B0005C613 = {
+			isa = PBXGroup;
+			children = (
+				48DC6ACD22CCBB5B0005C613 /* T3VideoCapture */,
+				48DC6ACC22CCBB5B0005C613 /* Products */,
+				869BB3D4F2005252F9EE2DAA /* Pods */,
+				87F88C5B21C5375D53DD0EE3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		48DC6ACC22CCBB5B0005C613 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48DC6ACB22CCBB5B0005C613 /* T3VideoCapture.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		48DC6ACD22CCBB5B0005C613 /* T3VideoCapture */ = {
+			isa = PBXGroup;
+			children = (
+				48DC6ACE22CCBB5B0005C613 /* AppDelegate.h */,
+				48DC6ACF22CCBB5B0005C613 /* AppDelegate.m */,
+				48DC6AE422CCBC980005C613 /* TTTRtcManager.h */,
+				48DC6AE522CCBC980005C613 /* TTTRtcManager.m */,
+				48DC6AE722CCBCE40005C613 /* TTTLoginViewController.h */,
+				48DC6AE822CCBCE40005C613 /* TTTLoginViewController.m */,
+				48DC6AEA22CD95F00005C613 /* TTTLiveViewController.h */,
+				48DC6AEB22CD95F00005C613 /* TTTLiveViewController.mm */,
+				481A30A322D82E0100B3A436 /* YYUI */,
+				4801A33622D6D19800BC09A2 /* YYTool */,
+				4801A2DB22D5F68B00BC09A2 /* YY */,
+				4801A2D922D5F58400BC09A2 /* of_effect.framework */,
+				48DC6AD422CCBB5B0005C613 /* Main.storyboard */,
+				48DC6AD722CCBB5C0005C613 /* Assets.xcassets */,
+				48DC6AD922CCBB5C0005C613 /* LaunchScreen.storyboard */,
+				48DC6ADC22CCBB5C0005C613 /* Info.plist */,
+				48DC6ADD22CCBB5C0005C613 /* main.m */,
+			);
+			path = T3VideoCapture;
+			sourceTree = "<group>";
+		};
+		869BB3D4F2005252F9EE2DAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE11DB4F296418BEBA12F969 /* Pods-T3VideoCapture.debug.xcconfig */,
+				619E052F28CEA82CB21D026C /* Pods-T3VideoCapture.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		87F88C5B21C5375D53DD0EE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4801A33422D5F75A00BC09A2 /* MetalPerformanceShaders.framework */,
+				4801A33222D5F6D000BC09A2 /* Accelerate.framework */,
+				129C76C4D097F77AB094864B /* Pods_T3VideoCapture.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		48DC6ACA22CCBB5B0005C613 /* T3VideoCapture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48DC6AE122CCBB5C0005C613 /* Build configuration list for PBXNativeTarget "T3VideoCapture" */;
+			buildPhases = (
+				0098C6FCF8388183290200A6 /* [CP] Check Pods Manifest.lock */,
+				48DC6AC722CCBB5B0005C613 /* Sources */,
+				48DC6AC822CCBB5B0005C613 /* Frameworks */,
+				48DC6AC922CCBB5B0005C613 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = T3VideoCapture;
+			productName = T3VideoCapture;
+			productReference = 48DC6ACB22CCBB5B0005C613 /* T3VideoCapture.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		48DC6AC322CCBB5B0005C613 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = yanzhen;
+				TargetAttributes = {
+					48DC6ACA22CCBB5B0005C613 = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 48DC6AC622CCBB5B0005C613 /* Build configuration list for PBXProject "T3VideoCapture" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 48DC6AC222CCBB5B0005C613;
+			productRefGroup = 48DC6ACC22CCBB5B0005C613 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				48DC6ACA22CCBB5B0005C613 /* T3VideoCapture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48DC6AC922CCBB5B0005C613 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				481A30B322D8353200B3A436 /* images in Resources */,
+				48DC6ADB22CCBB5C0005C613 /* LaunchScreen.storyboard in Resources */,
+				481A30B522D8353200B3A436 /* venus_models in Resources */,
+				48DC6AD822CCBB5C0005C613 /* Assets.xcassets in Resources */,
+				48DC6AD622CCBB5B0005C613 /* Main.storyboard in Resources */,
+				481A30B422D8353200B3A436 /* effects in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0098C6FCF8388183290200A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-T3VideoCapture-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48DC6AC722CCBB5B0005C613 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DC6ADE22CCBB5C0005C613 /* main.m in Sources */,
+				48DC6AE922CCBCE40005C613 /* TTTLoginViewController.m in Sources */,
+				481A30A222D82DE000B3A436 /* CameraUtil.mm in Sources */,
+				48DC6AE622CCBC980005C613 /* TTTRtcManager.m in Sources */,
+				481A30AC22D82E0100B3A436 /* FilterEffectPanel.mm in Sources */,
+				481A30AE22D82E0100B3A436 /* EffectRender.cpp in Sources */,
+				481A30A022D82DE000B3A436 /* HTTPUtil.m in Sources */,
+				48DC6AEC22CD95F00005C613 /* TTTLiveViewController.mm in Sources */,
+				481A30AD22D82E0100B3A436 /* StickerEffectPanel.mm in Sources */,
+				481A30AF22D82E0100B3A436 /* BeautyEffectPanel.mm in Sources */,
+				481A309F22D82DE000B3A436 /* StickerUtil.cpp in Sources */,
+				48DC6AD022CCBB5B0005C613 /* AppDelegate.m in Sources */,
+				481A309E22D82DE000B3A436 /* BeautyUtil.cpp in Sources */,
+				481A30A122D82DE000B3A436 /* FilterUtil.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		48DC6AD422CCBB5B0005C613 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48DC6AD522CCBB5B0005C613 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		48DC6AD922CCBB5C0005C613 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48DC6ADA22CCBB5C0005C613 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		48DC6ADF22CCBB5C0005C613 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		48DC6AE022CCBB5C0005C613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48DC6AE222CCBB5C0005C613 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE11DB4F296418BEBA12F969 /* Pods-T3VideoCapture.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XP66VHL84;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/T3VideoCapture",
+				);
+				INFOPLIST_FILE = T3VideoCapture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.3ttech.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		48DC6AE322CCBB5C0005C613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 619E052F28CEA82CB21D026C /* Pods-T3VideoCapture.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XP66VHL84;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/T3VideoCapture",
+				);
+				INFOPLIST_FILE = T3VideoCapture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.3ttech.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48DC6AC622CCBB5B0005C613 /* Build configuration list for PBXProject "T3VideoCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DC6ADF22CCBB5C0005C613 /* Debug */,
+				48DC6AE022CCBB5C0005C613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48DC6AE122CCBB5C0005C613 /* Build configuration list for PBXNativeTarget "T3VideoCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DC6AE222CCBB5C0005C613 /* Debug */,
+				48DC6AE322CCBB5C0005C613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 48DC6AC322CCBB5B0005C613 /* Project object */;
+}

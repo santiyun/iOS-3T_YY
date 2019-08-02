@@ -1,0 +1,20 @@
+PODS:
+  - TTTPlayerKit_iOS (1.1)
+  - TTTRtcEngineKit_iOS (2.2.2)
+
+DEPENDENCIES:
+  - TTTPlayerKit_iOS
+  - TTTRtcEngineKit_iOS
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TTTPlayerKit_iOS
+    - TTTRtcEngineKit_iOS
+
+SPEC CHECKSUMS:
+  TTTPlayerKit_iOS: 41d35b3444e6200db4804e679abfb2feb1456632
+  TTTRtcEngineKit_iOS: 96f436839d22279fcc5879b0fe9100a72cd0aaf5
+
+PODFILE CHECKSUM: 2249098f0af02da7f74f2e9ecd02bbe1ed12bf7a
+
+COCOAPODS: 1.7.2
