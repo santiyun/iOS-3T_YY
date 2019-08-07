@@ -48,23 +48,10 @@
     //以720P分辨率为例
     [engine setVideoProfile:TTTRtc_VideoProfile_720P swapWidthAndHeight:swapWH];
     [engine enableAudioVolumeIndication:1000 smooth:3];
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    //外部采集必须调用的接口
     [engine setLocalVideoFrameCaptureFormat:TTTRtc_VideoFrameFormat_Texture isVideoSizeSameWithProfile:NO];
-    
-    
-    
-    
-    
-    
-    
+
 //    //外部美颜需要做的事情
     [engine setExternalVideoSource:YES useTexture:NO];
     //加入房间

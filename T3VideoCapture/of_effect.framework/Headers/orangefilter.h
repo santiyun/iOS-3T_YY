@@ -99,10 +99,10 @@ typedef enum _OF_Result
 
 typedef enum _OF_LogLevel
 {
-    OF_LogLevel_Info = 0x00000001,
-    OF_LogLevel_Warn = 0x00000002,
-    OF_LogLevel_Error = 0x00000004,
-    OF_LogLevel_Debug = 0x00000008,
+    OF_LogLevel_Info    = 0x00000001,
+    OF_LogLevel_Warn    = 0x00000002,
+    OF_LogLevel_Error   = 0x00000004,
+    OF_LogLevel_Debug   = 0x00000008,
     OF_LogLevel_Verbose = 0xFFFFFFFF
 } OF_LogLevel;
 
@@ -155,33 +155,35 @@ typedef enum _OF_PixelFormat
     OF_PixelFormat_BGR24,	                /* Support for windows platform */
     OF_PixelFormat_BGR32,	                /* Support for windows platform */
     OF_PixelFormat_GRAY,                    /* Support. */
-    OF_PixelFormat_I420,                   /* Support for windows platform,I420(YU12): Y(w*h)+U(w*h/4)+V(w*h/4)*/
+    OF_PixelFormat_I420,                    /* Support for windows platform,I420(YU12): Y(w*h)+U(w*h/4)+V(w*h/4)*/
+	OF_PixelFormat_NV12,
+	OF_PixelFormat_NV21,
 } OF_PixelFormat;
 
 typedef enum _OF_RequiredFrameData
 {
-    OF_RequiredFrameData_None = 0x00000000,
-    OF_RequiredFrameData_FaceLandmarker = 0x00000001,
-    OF_RequiredFrameData_HeadPoseEstimate = 0x00000002,
-    OF_RequiredFrameData_FaceAction = 0x00000004,
-    OF_RequiredFrameData_Gesture = 0x00000008,
-    OF_RequiredFrameData_Body = 0x00000010,
+    OF_RequiredFrameData_None              = 0x00000000,
+    OF_RequiredFrameData_FaceLandmarker    = 0x00000001,
+    OF_RequiredFrameData_HeadPoseEstimate  = 0x00000002,
+    OF_RequiredFrameData_FaceAction        = 0x00000004,
+    OF_RequiredFrameData_Gesture           = 0x00000008,
+    OF_RequiredFrameData_Body              = 0x00000010,
     OF_RequiredFrameData_BackgroundSegment = 0x00000020,
-    OF_RequiredFrameData_ArCamera = 0x00000040,
-    OF_RequiredFrameData_AudioBeat = 0x00000080,
-    OF_RequiredFrameData_Avatar = 0x00000100,
-    OF_RequiredFrameData_Max = 0x00000100,
-    OF_RequiredFrameData_All = 0xFFFFFFFF
+    OF_RequiredFrameData_ArCamera          = 0x00000040,
+    OF_RequiredFrameData_AudioBeat         = 0x00000080,
+    OF_RequiredFrameData_Avatar            = 0x00000100,
+    OF_RequiredFrameData_Max               = 0x00000100,
+    OF_RequiredFrameData_All               = 0xFFFFFFFF
 } OF_RequiredFrameData;
 
 typedef enum _OF_ParamType
 {
-    OF_ParamType_Float = 0,
-    OF_ParamType_Int = 1,
-    OF_ParamType_Bool = 2,
-    OF_ParamType_Enum = 3,
-    OF_ParamType_Color = 4,
-    OF_ParamType_Res = 5,
+    OF_ParamType_Float  = 0,
+    OF_ParamType_Int    = 1,
+    OF_ParamType_Bool   = 2,
+    OF_ParamType_Enum   = 3,
+    OF_ParamType_Color  = 4,
+    OF_ParamType_Res    = 5,
     OF_ParamType_ResArr = 6,
     OF_ParamType_String = 7
 } OF_ParamType;
@@ -312,7 +314,8 @@ typedef struct _OF_AudioFrameData
 typedef struct _OF_FrameData
 {
     OFUInt8* imageData;                     /* [in] Image raw buffer, some filter may need this, most of the filter is set to OF_NULL. */
-    OFInt32 width;                          /* [in] Width of data. */
+	OFInt32 imageDir;						/* [in] Image direction. Deg0(0), Deg90(1), Deg180(2), Deg270(3). */
+	OFInt32 width;                          /* [in] Width of data. */
     OFInt32 height;                         /* [in] Height of data. */
     OFInt32 widthStep;                      /* [in] The number of bytes in per line of the data. */
     OFInt32 format;                         /* [in] Format of input image data, One of the OF_PixelFormat. */
@@ -329,6 +332,7 @@ typedef struct _OF_FrameData
     float pickPoint[2];                     /* [in] [out] */
     OFBool pickOn;                          /* [in] */
     OFBool pickResult;                      /* [out] */
+	OFBool frontCamera;
 } OF_FrameData;
 
 typedef struct _OF_Paramf
@@ -485,6 +489,21 @@ OF_API OF_Result OF_CreateEffectFromPackage(
     OFHandle contextID,                         /* [in] */
     const char* filePath,                       /* [in] */
     OFHandle* effectID);                        /* [out] */
+
+/**
+ * Create an effect from effect package in memory,
+ * OF_DestroyEffect can be used to free the effect resource.
+ * @param[in] contextID, context to create effect.
+ * @param[in] stream, package memory pointer.
+ * @param[in] streamSize, package memory size.
+ * @param[out] effectID, is set to the created effect, or to NULL in case of failure.
+ * @return, OF_Result_Success in case of success, others in case of failure.
+ */
+OF_API OF_Result OF_CreateEffectFromPackageMemory(
+	OFHandle contextID,                         /* [in] */
+	const char* stream,                         /* [in] */
+	OFInt32 streamSize,                         /* [in] */
+	OFHandle* effectID);                        /* [out] */
 
 /**
  * Free an effect resource.

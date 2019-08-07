@@ -1,11 +1,10 @@
 #import <UIKit/UIKit.h>
-#include "BeautyUtil.h"
-#include "EffectRender.h"
+#import "BeautyTool.h"
 
 @interface BeautyEffectPanel : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame andContext:(OFHandle)context;
 - (void)show;
-- (BeautyUtil*)getBeautyUtil;
+- (BeautyTool *)getBeautyUtil;
 
 @end

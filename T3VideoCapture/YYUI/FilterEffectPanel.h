@@ -1,10 +1,11 @@
 #import <UIKit/UIKit.h>
-#include "FilterUtil.h"
+#import "FilterTool.h"
 
+@class FilterTool;
 @interface FilterEffectPanel : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame andContext:(OFHandle)context;
 - (void)show;
-- (FilterUtil*)getFilterUtil;
+- (FilterTool *)getFilterUtil;
 
 @end

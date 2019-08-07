@@ -38,7 +38,7 @@ static id _manager;
     self = [super init];
     if (self) {
         //请填写在三体云官网申请的AppId
-        _rtcEngine = [TTTRtcEngineKit sharedEngineWithAppId:<#name#> delegate:nil];
+        _rtcEngine = [TTTRtcEngineKit sharedEngineWithAppId:@"test900572e02867fab8131651339518" delegate:nil];
     }
     return self;
 }

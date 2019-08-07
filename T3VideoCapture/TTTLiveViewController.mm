@@ -10,21 +10,15 @@
 #import <of_effect/orangefilter.h>
 #import <GLKit/GLKit.h>
 #import "TTTRtcManager.h"
-#include "CameraUtil.h"
-#include "EffectRender.h"
+#import "CameraUtil.h"
+#import "EffectTool.h"
 #import "BeautyEffectPanel.h"
 #import "FilterEffectPanel.h"
 #import "StickerEffectPanel.h"
 #import "HTTPUtil.h"
 #import <CoreImage/CoreImage.h>
 
-static int YYVideoCallBack(uint8_t* data, int width, int height) {
-    NSData *videoData = [NSData dataWithBytes:data length:width * height * 4];
-    [NSNotificationCenter.defaultCenter postNotificationName:@"VIDEOCABACK" object:videoData userInfo:@{@"width" : @(width), @"height" : @(height)}];
-    return 0;
-}
-
-@interface TTTLiveViewController ()<TTTRtcEngineDelegate>
+@interface TTTLiveViewController ()<TTTRtcEngineDelegate, CameraUtilDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *anchorPlayer;
 @property (weak, nonatomic) IBOutlet UILabel *statsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *exitBtn;
@@ -36,7 +30,7 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
     EAGLContext* _context;
     CameraUtil* _cameraUtil;
     CGSize _captureSize;
-    EffectRender* _render;
+    EffectTool* _render;
     OF_FrameData _frameData;
     int _screenWidth;
     int _screenHeight;
@@ -48,7 +42,6 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
     FilterEffectPanel* _filterPanel;
     UIView* _stickerView;
     StickerEffectPanel* _stickerPanel;
-    UIImageView* _focusImage;
 }
 
 - (void)dealloc
@@ -62,7 +55,6 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
     TTTRtcManager.manager.rtcEngine.delegate = self;
     [self initGLContext];
     [self initRender];
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(yy_videoCallback:) name:@"VIDEOCABACK" object:nil];
 #warning mark - 注意当前继承自GLKViewController
 }
 
@@ -89,19 +81,18 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
     NSString* ofLicensePath = [NSString stringWithFormat:@"%@/%@", documentPath, ofLicenseName];
     OF_Result checkResult = OF_CheckSerialNumber([ofSerialNumber UTF8String], [ofLicensePath UTF8String]);
     if (checkResult != OF_Result_Success) {
-        NSLog(@"check orange filter license failed");
+        NSLog(@"check orange filter license failed. ret = [%i]", checkResult);
     }
     
     _captureSize = CGSizeMake(720, 1280);
-    _cameraUtil = [[CameraUtil alloc] initWithGLContext:_context captureSize:AVCaptureSessionPreset1280x720];
+    _cameraUtil = [[CameraUtil alloc] initWithCaptureSize:AVCaptureSessionPreset1280x720];
+    _cameraUtil.delegate = self;
     
-    int width = (int) (self.view.bounds.size.width * self.view.contentScaleFactor);
+    int width  = (int) (self.view.bounds.size.width  * self.view.contentScaleFactor);
     int height = (int) (self.view.bounds.size.height * self.view.contentScaleFactor);
-    const char* dataPath = [[[NSBundle mainBundle] bundlePath] UTF8String];
-    _render = new EffectRender(width, height, dataPath);
-    _render->video_init(&YYVideoCallBack);
+    _render = [[EffectTool alloc] initWithContext:_context width:width height:height path:NSBundle.mainBundle.bundlePath];
     
-    if (_render->GetContext() != OF_INVALID_HANDLE) {
+    if (_render.context != OF_INVALID_HANDLE) {
         [self initUI];
     } else {
         dispatch_async(dispatch_get_main_queue(), ^() {
@@ -193,10 +184,8 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickBeautyView)];
     [_beautyView addGestureRecognizer:tap];
     
-    _beautyPanel = [[BeautyEffectPanel alloc] initWithFrame:CGRectMake(0, _screenHeight - panelHeight, _screenWidth, panelHeight) andContext:_render->GetContext()];
+    _beautyPanel = [[BeautyEffectPanel alloc] initWithFrame:CGRectMake(0, _screenHeight - panelHeight, _screenWidth, panelHeight) andContext:_render.context];
     [_beautyView addSubview:_beautyPanel];
-    
-    _render->SetBeautyUtil([_beautyPanel getBeautyUtil]);
     
     // filter
     _filterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _screenWidth, _screenHeight)];
@@ -205,10 +194,8 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFilterView)];
     [_filterView addGestureRecognizer:tap];
     
-    _filterPanel = [[FilterEffectPanel alloc] initWithFrame:CGRectMake(0, _screenHeight - panelHeight, _screenWidth, panelHeight) andContext:_render->GetContext()];
+    _filterPanel = [[FilterEffectPanel alloc] initWithFrame:CGRectMake(0, _screenHeight - panelHeight, _screenWidth, panelHeight) andContext:_render.context];
     [_filterView addSubview:_filterPanel];
-    
-    _render->SetFilterUtil([_filterPanel getFilterUtil]);
     
     // sticker
     _stickerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _screenWidth, _screenHeight)];
@@ -220,10 +207,10 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
     const float stickerTabH = 50;
     const float stickerLineH = 1;
     float stickerPanelH = stickerTabH + stickerLineH + panelHeight;
-    _stickerPanel = [[StickerEffectPanel alloc] initWithFrame:CGRectMake(0, _screenHeight - stickerPanelH, _screenWidth, stickerPanelH) andContext:_render->GetContext()];
+    _stickerPanel = [[StickerEffectPanel alloc] initWithFrame:CGRectMake(0, _screenHeight - stickerPanelH, _screenWidth, stickerPanelH) andContext:_render.context];
     [_stickerView addSubview:_stickerPanel];
     
-    _render->SetStickerUtil([_stickerPanel getStickerUtil]);
+    [_render setTool:[_filterPanel getFilterUtil] beautyTool:[_beautyPanel getBeautyUtil] stickerTool:[_stickerPanel getStickerUtil]];
 }
 
 - (void)clickBeauty {
@@ -270,26 +257,34 @@ static int YYVideoCallBack(uint8_t* data, int width, int height) {
 }
 
 - (void)glkView:(GLKView*)view drawInRect:(CGRect)rect {
-    if ([_cameraUtil hasCameraTexture]) {
-        int width = [_cameraUtil getCameraTextureWidth];
-        int height = [_cameraUtil getCameraTextureHeight];
-        
-        memset(&_frameData, 0, sizeof(_frameData));
-        _frameData.width = width;
-        _frameData.height = height;
-        _frameData.format = OF_PixelFormat_BGR32;
-        _frameData.imageData = [_cameraUtil getCameraImageData];
-        _frameData.widthStep = [_cameraUtil getCameraImageDataPitch];
-        _frameData.timestamp = 0;
-        _frameData.isUseCustomHarsLib = OF_FALSE;
-        
-        if (_frameData.isUseCustomHarsLib) {
-            NSLog(@"Please add your own humanaction library!");
-        }
-        
-        _render->Render([_cameraUtil getCameraTextureId], width, height, &_frameData);
+    CVPixelBufferRef pixelBuffer = [_render render:[_cameraUtil getCameraPixelBuffer]];
+    if (pixelBuffer) {
+        TTTRtcVideoFrame *frame = [[TTTRtcVideoFrame alloc] init];
+        frame.format = TTTRtc_VideoFrameFormat_Texture;
+        frame.strideInPixels = (int)CVPixelBufferGetWidth(pixelBuffer);
+        frame.height = (int)CVPixelBufferGetHeight(pixelBuffer);
+        frame.textureBuffer = pixelBuffer;
+        [TTTRtcManager.manager.rtcEngine pushExternalVideoFrame:frame];
+        CVPixelBufferRelease(pixelBuffer);
+        [_cameraUtil releasePixelBuffer];
     }
+//    CVPixelBufferRelease(pixelBuffer);
+//    if (pixelBuffer) {
+//        [_cameraUtil renderDone:pixelBuffer];
+//        [_cameraUtil releasePixelBuffer];
+//    }
+
 }
+
+//-(void)camera:(CameraUtil *)camera output:(CVPixelBufferRef)pixelBuffer {
+//    TTTRtcVideoFrame *frame = [[TTTRtcVideoFrame alloc] init];
+//    frame.format = TTTRtc_VideoFrameFormat_Texture;
+//    frame.strideInPixels = (int)CVPixelBufferGetWidth(pixelBuffer);
+//    frame.height = (int)CVPixelBufferGetHeight(pixelBuffer);
+//    frame.textureBuffer = pixelBuffer;
+//    [TTTRtcManager.manager.rtcEngine pushExternalVideoFrame:frame];
+//    CVPixelBufferRelease(pixelBuffer);
+//}
 
 
 - (IBAction)exitChannel:(UIButton *)sender {

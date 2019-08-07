@@ -1,17 +1,22 @@
 #import <GLKit/GLKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+@class CameraUtil;
+@protocol CameraUtilDelegate <NSObject>
+
+- (void)camera:(CameraUtil *)camera output:(CVPixelBufferRef)pixelBuffer;
+
+@end
 
 @interface CameraUtil : NSObject
 
-- (id)initWithGLContext:(EAGLContext*)context captureSize:(AVCaptureSessionPreset)size;
-- (BOOL)hasCameraTexture;
-- (int)getCameraTextureWidth;
-- (int)getCameraTextureHeight;
-- (GLuint)getCameraTextureId;
-- (int)getCameraImageDataPitch;
-- (uint8_t*)getCameraImageData;
+@property (nonatomic, weak) id<CameraUtilDelegate> delegate;
+
+- (id)initWithCaptureSize:(AVCaptureSessionPreset)size;
+- (CVPixelBufferRef) getCameraPixelBuffer;
+- (void)releasePixelBuffer;
 - (void)focusAuto;
 - (void)focusAtPoint:(CGPoint)point;
+- (void)renderDone:(CVPixelBufferRef)buffer;
 
 @end
